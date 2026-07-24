@@ -35,6 +35,7 @@ git clone <your-repo>
 cd curiosity.sh
 chmod +x curiosity.sh
 ./curiosity.sh
+```
 # Select [1] Install dependencies on first run
 
 curiosity © TGDK 2023-2026
