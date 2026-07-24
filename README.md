@@ -1,4 +1,4 @@
-# curiosity.sh - Domestic Kitten Countermeasure Framework
+# shovel.sh - Domestic Kitten Countermeasure Framework
 ### Ghidra Curiosity Shovel Edition v3
 
 > Find, quarantine, and deliberately deconstruct Domestic Kitten / APT-C-50 / FurBall payloads.
