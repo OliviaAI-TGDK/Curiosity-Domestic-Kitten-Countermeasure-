@@ -37,5 +37,5 @@ cd shovel
 chmod +x shovel.sh
 ./shovel.sh setup
 ./shovel.sh watch ~/storage/downloads
-
+```
 SHOVEL © TGDK 2023-2026
