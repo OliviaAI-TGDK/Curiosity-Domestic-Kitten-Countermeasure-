@@ -1,6 +1,8 @@
 # shovel.sh - Domestic Kitten Countermeasure Framework
 ### Ghidra Shovel Edition v4
 
+(previously curiosity)
+
 > Find, quarantine, and deliberately deconstruct Domestic Kitten / APT-C-50 / FurBall payloads.
 > Defensive research tool. Lab use only.
 
