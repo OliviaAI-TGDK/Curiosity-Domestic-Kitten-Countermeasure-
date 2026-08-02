@@ -1,40 +1,4 @@
-
-#!/bin/bash
-# Curiosity Shovel v4.0 - PRODUCTION
-# Features: Depth Perception + Quantumlineation
-# Defensive Use Only
-
-set -euo pipefail
-
-GHIDRA_HOME="${GHIDRA_HOME:-$HOME/ghidra_11.2_PUBLIC}"
-PROJECT_DIR="$HOME/shovel_project"
-QUARANTINE="$HOME/quarantine"
-REPORT_DIR="$HOME/shovel_reports"
-TMP_LOG="$PREFIX/tmp/curiosity_hits.log"
-YARA_FILE="$HOME/domestic_kitten.yar"
-SCRIPT_DIR="$HOME/shovel_scripts"
-WATCH_INTERVAL=${WATCH_INTERVAL:-45}
-
-# Colors
-RED='\033[0;31m'; GREEN='\033[0;32m'; BLUE='\033[0;34m'; CYAN='\033[0;36m'; YELLOW='\033[1;33m'; NC='\033[0m'
-
-ensure_env() {
-    mkdir -p "$QUARANTINE" "$REPORT_DIR" "$PROJECT_DIR" "$SCRIPT_DIR" "$PREFIX/tmp"
-    touch "$TMP_LOG"
-
-    # Auto-write production YARA
-    if [[! -f "$YARA_FILE" ]]; then
-        cat > "$YARA_FILE" << 'YARA'
-import "android"
-import "dex"
-rule DomesticKitten_FurBall_Core_Prod {
-    meta: description = "Domestic Kitten FurBall - Production" author = "Olivian Security" severity = "CRITICAL"
-    strings:
-        $c2_a = "api.telegram.org/bot" nocase
-        $c2_b = /bot[0-9]{8,12}:[A-Za-z0-9_-]{30,50}/
-        $c2_c = "sendDocument"
-        $c2_d = "sendMessage"
-        $ex_a = "READ_SMS" $ex_b = "READ_CONTACTS" $ex_c = "RECORD_AUDIO" $ex_d = "getExternalStorageDirectory"
+5        $ex_a = "READ_SMS" $ex_b = "READ_CONTACTS" $ex_c = "RECORD_AUDIO" $ex_d = "getExternalStorageDirectory"
     condition: uint16(0) == 0x4B50 and (2 of ($c2_*) and 2 of ($ex_*))
 }
 YARA
